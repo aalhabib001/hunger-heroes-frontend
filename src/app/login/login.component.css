@@ -1,0 +1,15 @@
+.login-box {
+    border: 1px solid #dadce0;
+    width: 450px;
+    margin: 10% 0;
+    padding: 3rem;
+}
+
+@media (max-width: 600px) {
+    .login-box {
+        border: none;
+        width: auto;
+        margin: 10% 0;
+        padding: 1rem;
+    }
+}

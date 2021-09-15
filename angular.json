@@ -1,25 +1,28 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "hunger-heroes": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/hunger-heroes",
-            "index": "src/index.html",
-            "main": "src/main.ts",
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "cli": {
+        "analytics": "57c2fb03-0d4b-4c96-959d-c75e9b53a12d"
+    },
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "hunger-heroes": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:application": {
+                    "strict": true
+                }
+            },
+            "root": "",
+            "sourceRoot": "src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/hunger-heroes",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -27,7 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+                "src/styles.css",
+                "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
+                "node_modules/angular-bootstrap-md/assets/scss/mdb.scss"
             ],
             "scripts": []
           },

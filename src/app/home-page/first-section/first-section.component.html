@@ -1,0 +1,8 @@
+<div class="bg-image p-2">
+    <div class="row card-row">
+        <div *ngFor="let cardData of cardDataList" class="col-md-6 col-sm-12 p-2 no-gutters">
+            <app-info-card [cardData]="cardData" class="d-flex justify-content-center card-padding"></app-info-card>
+        </div>
+    </div>
+
+</div>

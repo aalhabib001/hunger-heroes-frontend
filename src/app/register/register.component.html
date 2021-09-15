@@ -1,0 +1,21 @@
+<form class="login-box mx-auto">
+    <h5 class="my-2">Register For New Account</h5>
+    <div class="md-form">
+        <input #email class="form-control" id="email" mdbInput required type="email">
+        <label class="" for="email">Email</label>
+    </div>
+    <div class="md-form">
+        <input #name class="form-control" id="name" mdbInput required type="text">
+        <label class="" for="name">Name</label>
+    </div>
+    <div class="md-form">
+        <input #phone class="form-control" id="phone" mdbInput required type="number">
+        <label class="" for="phone">Phone</label>
+    </div>
+    <div class="md-form">
+        <input #pass class="form-control" id="password" mdbInput type="password">
+        <label class="" for="password">Password</label>
+    </div>
+
+    <div (click)="handleRegister(email, name, phone, pass)" class="btn btn-primary">Login</div>
+</form>

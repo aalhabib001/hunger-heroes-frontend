@@ -1,0 +1,26 @@
+.bg-image {
+    display: block;
+    background-image: url('../../../assets/images/main-bg.jpg');
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.card-padding {
+    padding: 50px 0;
+}
+
+.card-row {
+    margin: 5rem;
+}
+
+@media (max-width: 600px) {
+    .card-padding {
+        padding: 20px 0;
+    }
+
+    .card-row {
+        margin: 0.5rem;
+    }
+}
+

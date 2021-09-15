@@ -1,0 +1,13 @@
+<form class="login-box mx-auto">
+    <h5 class="my-2">Login with your credential</h5>
+    <div class="md-form">
+        <input #email class="form-control" id="email" mdbInput required type="email">
+        <label class="" for="email">Email</label>
+    </div>
+    <div class="md-form">
+        <input #pass class="form-control" id="password" mdbInput type="password">
+        <label class="" for="password">Password</label>
+    </div>
+
+    <div (click)="handleLogin(email, pass)" class="btn btn-primary">Login</div>
+</form>
