@@ -13,6 +13,10 @@ import {LoginComponent} from './login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {RegisterComponent} from './register/register.component';
 import {FooterComponent} from './footer/footer.component';
+import { CountSectionComponent } from './home-page/count-section/count-section.component';
+import { FoodRequestsComponent } from './food-requests/food-requests.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FoodCardComponent } from './food-requests/food-card/food-card.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +28,11 @@ import {FooterComponent} from './footer/footer.component';
         ContactComponent,
         LoginComponent,
         RegisterComponent,
-        FooterComponent
+        FooterComponent,
+        CountSectionComponent,
+        FoodRequestsComponent,
+        NotFoundComponent,
+        FoodCardComponent
     ],
     imports: [
         BrowserModule,

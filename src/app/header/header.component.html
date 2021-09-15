@@ -1,0 +1,43 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo p-3">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" routerLink="/">Hunger Heroes</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="/" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/food-requests" class="nav-link waves-light" mdbWavesEffect>Food Requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect>Organizations</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/contact" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect>About US</a>
+      </li>
+
+    </ul>
+    <div class="navbar-nav ml-auto">
+
+      <div *ngIf="isLoggedIn" class="d-flex justify-content-around">
+        <li class="btn btn-success mx-1">Create New Food Request</li>
+        <li class="btn btn-light mx-1" (click)="changeLogin()">Logout</li>
+      </div>
+      <div *ngIf="!isLoggedIn">
+        <li class="btn btn-info mx-1" routerLink="/register">Register</li>
+        <li class="btn btn-light mx-1" routerLink="/login">Login</li>
+      </div>
+
+    </div>
+  </links>
+
+</mdb-navbar>
+<!--/.Navbar-->

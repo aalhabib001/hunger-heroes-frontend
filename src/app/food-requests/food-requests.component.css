@@ -1,0 +1,7 @@
+
+.card-border-header {
+    border-bottom: 5px solid;
+    border-image: linear-gradient(90deg, blue, #19ac07);
+    border-image-slice: 1;
+    /*width: 40%;*/
+}

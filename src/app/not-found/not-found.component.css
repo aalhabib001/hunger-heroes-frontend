@@ -1,0 +1,10 @@
+.image-size {
+    width: 50%;
+}
+
+@media (max-width: 600px) {
+    .image-size {
+        width: 100%;
+    }
+
+}

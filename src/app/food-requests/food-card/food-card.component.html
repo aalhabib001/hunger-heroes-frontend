@@ -1,0 +1,29 @@
+<mdb-card class="card-width">
+    <!--Card image-->
+    <div class="row">
+        <div class="d-flex align-items-center col-6 col-md-4 image-div">
+            <img src="{{ foodRequest.image }}" alt="Card image cap" class="img-size img-thumbnail"/>
+        </div>
+        <mdb-card-body class="col-6 col-md-8">
+
+            <div>
+                <mdb-card-title>
+                    <h5>{{ foodRequest.title }}</h5>
+                </mdb-card-title>
+
+                <mdb-card-title>
+                    <h6>{{ foodRequest.name }}</h6>
+                </mdb-card-title>
+                <!--Text-->
+                <mdb-card-text>
+                    {{ foodRequest.address }}
+                </mdb-card-text>
+            </div>
+            <div class="d-flex justify-content-end">
+                <h6 class="mb-0">2 hours ago</h6>
+            </div>
+        </mdb-card-body>
+
+    </div>
+
+</mdb-card>
