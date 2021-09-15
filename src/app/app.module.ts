@@ -13,10 +13,13 @@ import {LoginComponent} from './login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {RegisterComponent} from './register/register.component';
 import {FooterComponent} from './footer/footer.component';
-import { CountSectionComponent } from './home-page/count-section/count-section.component';
-import { FoodRequestsComponent } from './food-requests/food-requests.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { FoodCardComponent } from './food-requests/food-card/food-card.component';
+import {CountSectionComponent} from './home-page/count-section/count-section.component';
+import {FoodRequestsComponent} from './food-requests/food-requests.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {FoodCardComponent} from './food-requests/food-card/food-card.component';
+import {SliderComponent} from './home-page/slider/slider.component';
+import {OrganizationsComponent} from './organizations/organizations.component';
+import {OrganizationCardComponent} from './organizations/organization-card/organization-card.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +35,10 @@ import { FoodCardComponent } from './food-requests/food-card/food-card.component
         CountSectionComponent,
         FoodRequestsComponent,
         NotFoundComponent,
-        FoodCardComponent
+        FoodCardComponent,
+        SliderComponent,
+        OrganizationsComponent,
+        OrganizationCardComponent
     ],
     imports: [
         BrowserModule,

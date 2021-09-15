@@ -1,0 +1,23 @@
+<!-- Card -->
+<mdb-card class="m-2 no-gutters">
+    <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+        <!-- Card img -->
+        <img alt="Card image cap" class="w-100 img-thumbnail"
+             src="{{ organization.logo ? organization.logo :'https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg' }}"/>
+        <a>
+            <div class="mask"></div>
+        </a>
+    </div>
+    <!--Card content-->
+    <mdb-card-body>
+        <!--Title-->
+        <mdb-card-title>
+            <h5>{{ organization.name }}</h5>
+        </mdb-card-title>
+        <div class="d-flex justify-content-center mt-4">
+            <a class="btn btn-outline-success" href="{{ organization.webLink }}">Website</a>
+        </div>
+
+    </mdb-card-body>
+</mdb-card>
+<!-- Card -->

@@ -6,6 +6,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {FoodRequestsComponent} from "./food-requests/food-requests.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {OrganizationsComponent} from "./organizations/organizations.component";
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomePageComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'food-requests', component: FoodRequestsComponent},
+    {path: 'organizations', component: OrganizationsComponent},
     {path: '**', component: NotFoundComponent},
     // {path: 'shopping-list', component: ShoppingListComponent},
 ]
