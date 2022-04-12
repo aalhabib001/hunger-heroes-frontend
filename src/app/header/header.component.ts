@@ -1,20 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../auth/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+    isLoggedIn: boolean = false;
 
-  ngOnInit(): void {
-  }
+    constructor(private _authService: AuthService,
+                private _router: Router) {
+    }
 
-  isLoggedIn: boolean = true;
+    ngOnInit(): void {
+        this._authService.autoLogin();
+        this._authService.user.subscribe(
+            token => {
+                this.isLoggedIn = !!token;
+            }
+        )
+    }
 
-  changeLogin() {
-    this.isLoggedIn = !this.isLoggedIn;
-  }
+    changeLogin() {
+        this._authService.logout();
+    }
 }

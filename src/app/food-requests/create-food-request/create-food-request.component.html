@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()" class="login-box mx-auto">
+    <h5 class="my-2">Create Food Request</h5>
+    <div class="md-form">
+        <input [(ngModel)]="foodRequestModel.title" class="form-control" mdbInput name="title" required type="text">
+        <label class="">Title</label>
+    </div>
+    <div class="md-form">
+        <input [(ngModel)]="foodRequestModel.phoneNo" class="form-control" mdbInput name="phoneNo" required type="text">
+        <label class="">Phone No</label>
+    </div>
+    <div class="md-form">
+        <input (change)="uploadFile($event)" class="form-control" multiple name="image" required type="file">
+        <!--        <label class="" for="image">Image</label>-->
+    </div>
+    <div class="md-form">
+        <textarea [(ngModel)]="foodRequestModel.address" class="form-control" name="address" placeholder="Address" required>
+        </textarea>
+    </div>
+    <input class="btn btn-success" title="Submit" type="submit">
+</form>
+

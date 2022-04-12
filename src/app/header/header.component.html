@@ -28,7 +28,7 @@
     <div class="navbar-nav ml-auto">
 
       <div *ngIf="isLoggedIn" class="d-flex justify-content-around">
-        <li class="btn btn-success mx-1">Create New Food Request</li>
+        <li class="btn btn-success mx-1" routerLink="/food-requests/add">Create New Food Request</li>
         <li class="btn btn-light mx-1" (click)="changeLogin()">Logout</li>
       </div>
       <div *ngIf="!isLoggedIn">
