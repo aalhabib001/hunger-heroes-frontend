@@ -15,6 +15,7 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'food-requests', component: FoodRequestsComponent},
+    {path: 'food-requests/admin', component: FoodRequestsComponent},
     {path: 'food-requests/add', component: CreateFoodRequestComponent},
     {path: 'organizations', component: OrganizationsComponent},
     {path: '**', component: NotFoundComponent},

@@ -15,6 +15,7 @@ export class AuthService {
 
     url = environment.urls.host;
     user = new BehaviorSubject<string>("");
+    isAdmin = new BehaviorSubject<boolean>(false);
     private tokenExpirationTimer: any;
 
     constructor(private http: HttpClient, private router: Router) {
@@ -44,6 +45,12 @@ export class AuthService {
         const expirationDuration = AuthService.getExpirationDuration(expirationDate);
         this.autoLogout(expirationDuration);
         localStorage.setItem('jwt', token);
+
+        // decode token to get user data
+        const decodedToken = JSON.parse(atob(token.split('.')[1]));
+        this.isAdmin.next(decodedToken.sub === 'admin');
+
+        console.log(this.isAdmin.value);
     }
 
     logout() {

@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
                 console.log(res);
                 this._authService.handleAuthentication(res.data.token);
                 this._toaster.success(res.message, "Success");
+                this._router.navigate(['/']);
 
             },
             error => {

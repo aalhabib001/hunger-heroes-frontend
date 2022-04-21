@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
 
     isLoggedIn: boolean = false;
+    isAdmin: boolean = false;
 
     constructor(private _authService: AuthService,
                 private _router: Router) {
@@ -20,6 +21,12 @@ export class HeaderComponent implements OnInit {
         this._authService.user.subscribe(
             token => {
                 this.isLoggedIn = !!token;
+            }
+        )
+
+        this._authService.isAdmin.subscribe(
+            isAdmin => {
+                this.isAdmin = isAdmin;
             }
         )
     }

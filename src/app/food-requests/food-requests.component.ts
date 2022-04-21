@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FoodRequestModel} from "./food-request.model";
-import {fakeFoodData} from "./FakeFoodRequestData";
+import {FoodRequestsService} from "./food-requests.service";
+import {FoodResponseModel} from "./food.response.model";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-food-requests',
@@ -9,13 +10,33 @@ import {fakeFoodData} from "./FakeFoodRequestData";
 })
 export class FoodRequestsComponent implements OnInit {
 
-    foodRequests: FoodRequestModel[] = fakeFoodData;
+    foodRequests: FoodResponseModel[] = [];
+    title: string = 'Food Requests';
+    isAdmin: boolean = false;
 
-    constructor() {
-
+    constructor(private _foodRequestsService: FoodRequestsService,
+                private _router: Router) {
+        if (this._router.url.includes('admin')) {
+            this.isAdmin = true;
+            this.title = 'Admin Food Requests';
+        }
     }
 
     ngOnInit(): void {
+        if (this.isAdmin) {
+            this._foodRequestsService.getFoodRequestsAdmin().subscribe(
+                res => {
+                    this.foodRequests = res.data;
+                }
+            );
+        } else {
+            this._foodRequestsService.getFoodRequests().subscribe(
+                res => {
+                    this.foodRequests = res.data;
+                }
+            );
+        }
+
     }
 
 }

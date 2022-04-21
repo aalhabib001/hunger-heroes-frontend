@@ -1,10 +1,11 @@
 <div class="container my-5">
     <div class="d-flex justify-content-center">
         <div class="card-border-header px-5">
-            <h4>Food Requests</h4>
+            <h4>{{ title }}</h4>
         </div>
     </div>
     <div>
-        <app-food-card class="d-flex justify-content-center" *ngFor="let item of foodRequests" [foodRequest]="item"></app-food-card>
+        <app-food-card *ngFor="let item of foodRequests" [foodResponseModel]="item" [isAdmin]="isAdmin"
+                       class="d-flex justify-content-center"></app-food-card>
     </div>
 </div>

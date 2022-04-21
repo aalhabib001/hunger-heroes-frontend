@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FoodRequestModel} from "./foodrequest.model";
 import {FileUploadService} from "../../shared/service/file-upload.service";
 import {FoodRequestsService} from "../food-requests.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-create-food-request',
@@ -13,7 +14,8 @@ export class CreateFoodRequestComponent implements OnInit {
     foodRequestModel: FoodRequestModel = new FoodRequestModel("", "", "", "");
 
     constructor(private _fileUploadService: FileUploadService,
-                private _foodRequestService: FoodRequestsService) {
+                private _foodRequestService: FoodRequestsService,
+                private _router: Router) {
     }
 
     ngOnInit(): void {
@@ -26,6 +28,7 @@ export class CreateFoodRequestComponent implements OnInit {
         this._foodRequestService.createFoodRequest(this.foodRequestModel).subscribe(
             res => {
                 console.log(res)
+                this._router.navigate(['/food-requests'])
             },
             error => {
                 console.log(error)
@@ -38,7 +41,7 @@ export class CreateFoodRequestComponent implements OnInit {
         // @ts-ignore
         let image: File = (file.target as HTMLInputElement).files[0];
 
-        console.log(image);
+        // console.log(image);
 
         this._fileUploadService.upload(image).subscribe(
             res => {

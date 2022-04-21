@@ -14,7 +14,7 @@ export class FileUploadService {
   upload(image: File) {
     const formData = new FormData();
     formData.append('image', image);
-    formData.append('key', 'ed071214eba59803f394436d3654d8c6');
+    formData.append('key', '9dbed9e6b5dd0dad0ae40aaf775102f0');
 
     return this.http.post<any>(this.url, formData);
   }
