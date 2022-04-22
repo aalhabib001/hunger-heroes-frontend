@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FoodResponseModel} from "../food.response.model";
 import {FoodRequestsService} from "../food-requests.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-food-card',
@@ -14,7 +15,8 @@ export class FoodCardComponent implements OnInit {
     @Input() isAdmin: boolean = false;
 
 
-    constructor(private _foodRequestsService: FoodRequestsService) {
+    constructor(private _foodRequestsService: FoodRequestsService,
+                private _router: Router) {
 
     }
 
@@ -29,6 +31,7 @@ export class FoodCardComponent implements OnInit {
         this._foodRequestsService.approveRequest(id).subscribe(
             res => {
                 console.log(res);
+                this._router.navigate(['/food-requests']);
             },
             (error: any) => {
                 console.log(error);

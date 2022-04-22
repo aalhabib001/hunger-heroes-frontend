@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 export class CreateFoodRequestComponent implements OnInit {
 
     foodRequestModel: FoodRequestModel = new FoodRequestModel("", "", "", "");
+    uploading: boolean = false;
 
     constructor(private _fileUploadService: FileUploadService,
                 private _foodRequestService: FoodRequestsService,
@@ -43,16 +44,18 @@ export class CreateFoodRequestComponent implements OnInit {
 
         // console.log(image);
 
+        this.uploading = true;
         this._fileUploadService.upload(image).subscribe(
             res => {
 
                 this.foodRequestModel.imageLink = res.data.url;
+                this.uploading = false;
             },
             error => {
                 console.log(error);
+                this.uploading = false;
             }
         )
-
     }
 
 }

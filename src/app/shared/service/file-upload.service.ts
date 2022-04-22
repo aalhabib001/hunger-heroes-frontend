@@ -16,6 +16,6 @@ export class FileUploadService {
     formData.append('image', image);
     formData.append('key', '9dbed9e6b5dd0dad0ae40aaf775102f0');
 
-    return this.http.post<any>(this.url, formData);
+    return this.http.post<any>(this.url, formData, {headers: {skip: 'true'}});
   }
 }

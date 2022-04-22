@@ -12,10 +12,13 @@
         <input (change)="uploadFile($event)" class="form-control" multiple name="image" required type="file">
         <!--        <label class="" for="image">Image</label>-->
     </div>
+    <div *ngIf="uploading" class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+
     <div class="md-form">
         <textarea [(ngModel)]="foodRequestModel.address" class="form-control" name="address" placeholder="Address" required>
         </textarea>
     </div>
     <input class="btn btn-success" title="Submit" type="submit">
 </form>
-

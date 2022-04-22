@@ -16,6 +16,13 @@ export class AuthInterceptorService implements HttpInterceptor {
                 if (!user) {
                     return next.handle(req);
                 }
+                if (req.headers.get('skip')) {
+
+                    req = req.clone({
+                        headers: req.headers.delete('skip')
+                    });
+                    return next.handle(req);
+                }
                 const modifiedReq = req.clone({
                     headers: new HttpHeaders().set('Authorization', "Bearer " + user)
                 });
