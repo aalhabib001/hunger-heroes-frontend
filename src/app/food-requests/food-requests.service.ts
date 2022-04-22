@@ -22,11 +22,11 @@ export class FoodRequestsService {
     }
 
     getFoodRequests() {
-        return this.http.get<PaginationResponse<FoodResponseModel>>(this.url);
+        return this.http.get<PaginationResponse<FoodResponseModel>>(this.url + '?pageNo=0&pageSize=1000');
     }
 
     getFoodRequestsAdmin() {
-        return this.http.get<PaginationResponse<FoodResponseModel>>(this.url + '?isApproved=false');
+        return this.http.get<PaginationResponse<FoodResponseModel>>(this.url + '?isApproved=false?pageNo=0&pageSize=1000');
     }
 
     approveRequest(id: number) {

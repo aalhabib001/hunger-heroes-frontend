@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
     handleRegister(userName: HTMLInputElement, name: HTMLInputElement, phone: HTMLInputElement, pass: HTMLInputElement, userType: HTMLSelectElement) {
 
-        let registerModel: RegisterModel = new RegisterModel(pass.value, phone.value, userName.value, userType.value);
+        let registerModel: RegisterModel = new RegisterModel(pass.value, phone.value, userName.value, userType.value, name.value);
 
         console.log(registerModel);
         this._authService.register(registerModel).subscribe(

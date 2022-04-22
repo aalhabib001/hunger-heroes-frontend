@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit()" class="login-box mx-auto">
+    <h5 class="my-2">Create New Organization</h5>
+    <div class="md-form">
+        <input [(ngModel)]="organization.orgName" class="form-control" mdbInput name="orgName" required type="text">
+        <label class="">Organization Name</label>
+    </div>
+    <div class="md-form">
+        <input [(ngModel)]="organization.orgWebsite" class="form-control" mdbInput name="orgWebsite" required type="text">
+        <label class="">Website</label>
+    </div>
+    <div class="md-form">
+        <input [(ngModel)]="organization.orgPhone" class="form-control" mdbInput name="orgPhone" required type="text">
+        <label class="">Phone</label>
+    </div>
+    <div class="md-form">
+        <input (change)="uploadFile($event)" class="form-control" multiple name="image" required type="file">
+        <!--        <label class="" for="image">Image</label>-->
+    </div>
+    <div *ngIf="uploading" class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+
+    <div class="md-form">
+        <textarea [(ngModel)]="organization.orgDescription" class="form-control" name="orgDescription" placeholder="Description" required>
+        </textarea>
+    </div>
+    <div class="md-form">
+        <textarea [(ngModel)]="organization.orgAddress" class="form-control" name="address" placeholder="Address" required>
+        </textarea>
+    </div>
+    <input class="btn btn-success" title="Submit" type="submit">
+</form>

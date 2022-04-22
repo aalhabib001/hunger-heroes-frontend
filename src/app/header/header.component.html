@@ -1,46 +1,63 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo p-3">
 
-  <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand" routerLink="/">Hunger Heroes</a></mdb-navbar-brand>
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" routerLink="/">Hunger Heroes</a></mdb-navbar-brand>
 
-  <!-- Collapsible content -->
-  <links>
+    <!-- Collapsible content -->
+    <links>
 
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="/" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/food-requests" class="nav-link waves-light" mdbWavesEffect>Food Requests</a>
-      </li>
-      <li *ngIf="isAdmin" class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/food-requests/admin">Food Requests Admin</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/organizations">Organizations</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/contact" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect>About US</a>
-      </li>
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/" routerLinkActive="active">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/food-requests">Food Requests</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/organizations">Organizations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/contact" routerLinkActive="active">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect>About Us</a>
+            </li>
 
-    </ul>
-    <div class="navbar-nav ml-auto">
+            <li class="nav-item dropdown" mdbDropdown *ngIf="isAdmin" >
+                <a
+                        aria-expanded="false"
+                        class="nav-link dropdown-toggle"
+                        id="navbarDropdownMenuLink"
+                        mdbDropdownToggle
+                        role="button"
+                >
+                    Admin
+                </a>
+                <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu" mdbDropdown>
+                    <li>
+                        <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/food-requests/admin">Food Requests Admin</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/organizations/add">Create New Organization</a>
+                    </li>
+                </ul>
+            </li>
 
-      <div *ngIf="isLoggedIn" class="d-flex justify-content-around">
-        <li class="btn btn-success mx-1" routerLink="/food-requests/add">Create New Food Request</li>
-        <li class="btn btn-light mx-1" (click)="changeLogin()">Logout</li>
-      </div>
-      <div *ngIf="!isLoggedIn">
-        <li class="btn btn-info mx-1" routerLink="/register">Register</li>
-        <li class="btn btn-light mx-1" routerLink="/login">Login</li>
-      </div>
+        </ul>
+        <div class="navbar-nav ml-auto">
 
-    </div>
-  </links>
+            <div *ngIf="isLoggedIn" class="d-flex justify-content-around">
+                <li class="btn btn-success mx-1" routerLink="/food-requests/add">New Food Request</li>\
+                <li (click)="changeLogin()" class="btn btn-light mx-1">Logout</li>
+            </div>
+            <div *ngIf="!isLoggedIn">
+                <li class="btn btn-info mx-1" routerLink="/register">Register</li>
+                <li class="btn btn-light mx-1" routerLink="/login">Login</li>
+            </div>
+
+        </div>
+    </links>
 
 </mdb-navbar>
 <!--/.Navbar-->

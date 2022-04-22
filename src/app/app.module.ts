@@ -26,6 +26,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CreateFoodRequestComponent} from './food-requests/create-food-request/create-food-request.component';
 import {AuthService} from "./auth/auth.service";
 import {AuthInterceptorService} from "./auth/auth-interceptor.service";
+import { CreateOrganizationComponent } from './organizations/create-organization/create-organization.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +46,8 @@ import {AuthInterceptorService} from "./auth/auth-interceptor.service";
         SliderComponent,
         OrganizationsComponent,
         OrganizationCardComponent,
-        CreateFoodRequestComponent
+        CreateFoodRequestComponent,
+        CreateOrganizationComponent
     ],
     imports: [
         BrowserModule,

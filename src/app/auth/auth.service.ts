@@ -41,16 +41,12 @@ export class AuthService {
         const expirationDate = AuthService.generateExpireDate(token);
 
         this.user.next(token);
+
+        localStorage.setItem('jwt', token);
+
         this.autoLogin();
         const expirationDuration = AuthService.getExpirationDuration(expirationDate);
         this.autoLogout(expirationDuration);
-        localStorage.setItem('jwt', token);
-
-        // decode token to get user data
-        const decodedToken = JSON.parse(atob(token.split('.')[1]));
-        this.isAdmin.next(decodedToken.sub === 'admin');
-
-        console.log(this.isAdmin.value);
     }
 
     logout() {
@@ -62,13 +58,20 @@ export class AuthService {
             clearTimeout(this.tokenExpirationTimer);
         }
         this.tokenExpirationTimer = null;
+
+        this.autoLogin();
     }
 
     autoLogin(): boolean {
         const token = localStorage.getItem('jwt');
+
         if (!token) {
             return false;
         }
+
+        // decode token to get user data
+        const decodedToken = JSON.parse(atob(token.split('.')[1]));
+        this.isAdmin.next(decodedToken.sub === 'admin');
 
         if (token) {
             this.user.next(token);

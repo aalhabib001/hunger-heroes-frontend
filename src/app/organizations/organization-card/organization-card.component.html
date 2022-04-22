@@ -3,7 +3,7 @@
     <div class="view rgba-white-slight waves-light" mdbWavesEffect>
         <!-- Card img -->
         <img alt="Card image cap" class="w-100 img-thumbnail"
-             src="{{ organization.logo ? organization.logo :'https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg' }}"/>
+             src="{{ organization.orgImageLink ? organization.orgImageLink :'https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg' }}"/>
         <a>
             <div class="mask"></div>
         </a>
@@ -12,12 +12,17 @@
     <mdb-card-body>
         <!--Title-->
         <mdb-card-title>
-            <h5>{{ organization.name }}</h5>
+            <h5>{{ organization.orgName }}</h5>
         </mdb-card-title>
+        <mdb-card-text>
+            {{ organization.orgDescription }}
+        </mdb-card-text>
         <div class="d-flex justify-content-center mt-4">
-            <a class="btn btn-outline-success" href="{{ organization.webLink }}">Website</a>
+            <a class="btn btn-outline-success" href="{{ organization.orgWebsite }}">Website</a>
         </div>
-
+        <div class="d-flex justify-content-center mt-4">
+            <button (click)="deleteOrganization(organization.id)" class="btn btn-outline-danger">Delete</button>
+        </div>
     </mdb-card-body>
 </mdb-card>
 <!-- Card -->
