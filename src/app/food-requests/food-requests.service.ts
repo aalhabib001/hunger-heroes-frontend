@@ -26,7 +26,7 @@ export class FoodRequestsService {
     }
 
     getFoodRequestsAdmin() {
-        return this.http.get<PaginationResponse<FoodResponseModel>>(this.url + '?isApproved=false?pageNo=0&pageSize=1000');
+        return this.http.get<PaginationResponse<FoodResponseModel>>(this.url + '?isApproved=false&pageNo=0&pageSize=1000');
     }
 
     approveRequest(id: number) {
