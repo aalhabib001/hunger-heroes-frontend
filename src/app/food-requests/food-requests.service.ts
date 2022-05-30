@@ -32,4 +32,8 @@ export class FoodRequestsService {
     approveRequest(id: number) {
         return this.http.put<ApiMessageResponse<any>>(this.url + '/' + id + '/approve', {});
     }
+
+    confirmRequest(id: number) {
+        return this.http.post<ApiMessageResponse<any>>(this.url + "/" + id + "/confirm", null);
+    }
 }

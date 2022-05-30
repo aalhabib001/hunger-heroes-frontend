@@ -22,16 +22,20 @@
             <!--            <div class="d-flex justify-content-end">-->
             <!--                <h6 class="mb-0">  {{ getDate(foodResponseModel.createdOn) }}</h6>-->
             <!--            </div>-->
-            <div *ngIf="isAdmin" class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between">
                 <div>
                     <mdb-card-text>
                         {{ getDate(foodResponseModel.createdOn) }}
                     </mdb-card-text>
                 </div>
-                <div>
+                <div *ngIf="isAdmin">
                     <button (click)="approveRequest(foodResponseModel.id)" class="btn-sm" color="success" mdbBtn>Approve</button>
 
                     <button (click)="rejectRequest(foodResponseModel.id)" class="btn-sm" color="danger" mdbBtn>Reject</button>
+                </div>
+                <div *ngIf="!foodResponseModel.isConfirmed">
+                    <button (click)="confirmRequest(foodResponseModel.id)" class="btn-sm " color="secondary" mdbBtn>Confirm
+                    </button>
                 </div>
             </div>
         </mdb-card-body>

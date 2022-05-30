@@ -7,6 +7,7 @@ import {LoginModel} from "./login/login.model";
 import {LoginResponse} from "./login/login.response";
 import {BehaviorSubject, throwError} from "rxjs";
 import {Router} from "@angular/router";
+import {ProfileResponse} from "../header/profile.response";
 
 @Injectable({
     providedIn: 'root'
@@ -94,6 +95,10 @@ export class AuthService {
     private handleError(errRes: HttpErrorResponse) {
         let errorMsg = errRes.error.error.message;
         return throwError(errorMsg);
+    }
+
+    getProfile() {
+        return this.http.get<ApiMessageResponse<ProfileResponse>>(this.url + "/auth/profile");
     }
 }
 

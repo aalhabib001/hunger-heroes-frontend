@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FoodResponseModel} from "../food.response.model";
 import {FoodRequestsService} from "../food-requests.service";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'app-food-card',
@@ -16,6 +17,7 @@ export class FoodCardComponent implements OnInit {
 
 
     constructor(private _foodRequestsService: FoodRequestsService,
+                private _toaster: ToastrService,
                 private _router: Router) {
 
     }
@@ -41,5 +43,22 @@ export class FoodCardComponent implements OnInit {
 
     rejectRequest(id: number) {
 
+    }
+
+    confirmRequest(id: number) {
+        this._foodRequestsService.confirmRequest(id).subscribe(
+            res => {
+                this._toaster.success(res.message, "Success");
+                this._router.navigate(['/']).then(
+                    () => {
+                        this._router.navigate(['/food-requests']);
+                    });
+
+            },
+            error => {
+                console.log(error)
+                this._toaster.error("Something went wrong", "Error");
+            }
+        )
     }
 }

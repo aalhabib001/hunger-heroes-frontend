@@ -12,4 +12,6 @@ export interface FoodResponseModel {
     phoneNo: string;
     isApproved: boolean;
     imageLink: string;
+    isConfirmed: boolean;
+
 }

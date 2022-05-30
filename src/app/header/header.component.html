@@ -12,16 +12,13 @@
                 <a class="nav-link waves-light" mdbWavesEffect routerLink="/" routerLinkActive="active">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" mdbWavesEffect routerLink="/food-requests">Food Requests</a>
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/food-requests">Donation Posts</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link waves-light" mdbWavesEffect routerLink="/organizations">Organizations</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link waves-light" mdbWavesEffect routerLink="/contact" routerLinkActive="active">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link waves-light" mdbWavesEffect>About Us</a>
             </li>
 
             <li class="nav-item dropdown" mdbDropdown *ngIf="isAdmin" >
@@ -47,13 +44,33 @@
         </ul>
         <div class="navbar-nav ml-auto">
 
-            <div *ngIf="isLoggedIn" class="d-flex justify-content-around">
-                <li class="btn btn-success mx-1" routerLink="/food-requests/add">New Food Request</li>\
-                <li (click)="changeLogin()" class="btn btn-light mx-1">Logout</li>
+            <div *ngIf="isLoggedIn" class="d-flex justify-content-between">
+                <li class="btn-sm btn-success mx-1" routerLink="/food-requests/add">New Food Request</li>
+                <li class="nav-item dropdown" mdbDropdown>
+                    <a
+                            aria-expanded="false"
+                            class="nav-link dropdown-toggle"
+                            id="navbarDropdownMenuLink2"
+                            mdbDropdownToggle
+                            role="button"
+                    >
+                        <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png"
+                             style="border-radius: 50%; width: 35px; border: 1px solid darkgray; padding: 1px;">
+                    </a>
+
+                    <ul aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu" mdbDropdown>
+                        <li (click)="basicModal.show()">
+                            <a class="dropdown-item waves-light" mdbWavesEffect>Profile</a>
+                        </li>
+                        <li (click)="changeLogin()">
+                            <a class="dropdown-item waves-light" mdbWavesEffect>Logout</a>
+                        </li>
+                    </ul>
+                </li>
             </div>
-            <div *ngIf="!isLoggedIn">
-                <li class="btn btn-info mx-1" routerLink="/register">Register</li>
-                <li class="btn btn-light mx-1" routerLink="/login">Login</li>
+            <div *ngIf="!isLoggedIn" class="d-flex justify-content-around">
+                <li class="btn-sm btn-info mx-1" routerLink="/register">Register</li>
+                <li class="btn-sm btn-light mx-1" routerLink="/login">Login</li>
             </div>
 
         </div>
@@ -61,3 +78,32 @@
 
 </mdb-navbar>
 <!--/.Navbar-->
+
+<div #basicModal="mdbModal" aria-hidden="true" aria-labelledby="myBasicModalLabel" class="modal fade" mdbModal role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+        <div class="modal-content">
+            <!--            <div class="modal-header">
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title w-100" id="myModalLabel">Profile</h4>
+                        </div>-->
+            <div class="modal-header">
+                <img alt="Avatar photo"
+                     class="rounded-circle img-responsive"
+                     src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png">
+            </div>
+            <div class="modal-body">
+                <h5><b>Name: </b> {{ profileModel?.name }}</h5>
+                <h5><b>User Name: </b> {{ profileModel?.username }}</h5>
+                <h5><b>Phone No: </b> {{ profileModel?.phoneNo }}</h5>
+            </div>
+            <div class="modal-footer">
+                <button (click)="basicModal.hide()" aria-label="Close" class="waves-light" color="secondary" mdbBtn mdbWavesEffect
+                        type="button">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

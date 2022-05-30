@@ -6,9 +6,11 @@ export class FoodRequestModel {
     public time: string;
     public contact: string;
     public image: string;
+    public isConfirmed: boolean;
 
 
-    constructor(id: number, title: string, name: string, address: string, time: string, contact: string, image: string) {
+    constructor(id: number, title: string, name: string, address: string, time: string,
+                contact: string, image: string, isConfirmed: boolean) {
         this.id = id;
         this.title = title;
         this.name = name;
@@ -16,5 +18,6 @@ export class FoodRequestModel {
         this.time = time;
         this.contact = contact;
         this.image = image;
+        this.isConfirmed = isConfirmed
     }
 }

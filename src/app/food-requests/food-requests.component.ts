@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FoodRequestsService} from "./food-requests.service";
 import {FoodResponseModel} from "./food.response.model";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'app-food-requests',
@@ -15,6 +16,7 @@ export class FoodRequestsComponent implements OnInit {
     isAdmin: boolean = false;
 
     constructor(private _foodRequestsService: FoodRequestsService,
+                private _toaster: ToastrService,
                 private _router: Router) {
         if (this._router.url.includes('admin')) {
             this.isAdmin = true;
